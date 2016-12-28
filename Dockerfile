@@ -5,5 +5,5 @@ MAINTAINER  alexiynew
 CMD bash
 
 # Setup packages.
-RUN apt-get update && apt-get -y install cmake git
+RUN apt-get update && apt-get -y install cmake git clang
 RUN clang++ --version
