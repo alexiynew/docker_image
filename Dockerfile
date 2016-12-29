@@ -4,9 +4,12 @@ MAINTAINER  alexiynew
 # Default command on startup.
 CMD bash
 
+# Prepare
+RUN apt-get update
+RUN apt-get -y install wget
+
 # Update repositories
 RUN wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | apt-key add -
-# RUN curl -sSL "http://llvm.org/apt/llvm-snapshot.gpg.key" | sudo apt-key add
 RUN echo 'deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.8 main' >> /etc/apt/sources.list
 RUN apt-get update
 
