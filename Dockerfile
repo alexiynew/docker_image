@@ -13,7 +13,7 @@ RUN wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | apt-key add -
 RUN apt-get update
 
 # Setup packages.
-RUN apt-get install -y --no-install-recommends cmake
+RUN apt-get install -y --no-install-recommends cmake make
 RUN apt-get install -y --no-install-recommends clang-3.8
 
 RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.8 100
