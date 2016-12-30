@@ -6,11 +6,11 @@ CMD bash
 
 # Prepare
 RUN apt-get update
-RUN apt-get -y install wget
+#RUN apt-get -y install wget
 
 # Update repositories
-RUN wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | apt-key add -
-RUN apt-get update
+#RUN wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | apt-key add -
+#RUN apt-get update
 
 # Setup packages.
 RUN apt-get install -y --no-install-recommends cmake make
