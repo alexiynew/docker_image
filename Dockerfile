@@ -11,6 +11,7 @@ RUN apt-get update
 RUN apt-get install -y --no-install-recommends cmake make
 RUN apt-get install -y --no-install-recommends clang-3.8 g++-5
 RUN apt-get install -y --no-install-recommends python
+RUN apt-get install -y --no-install-recommends git
 
 RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.8 100
 RUN update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.8 100
