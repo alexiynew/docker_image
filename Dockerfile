@@ -1,18 +1,22 @@
 FROM        ubuntu:xenial
 MAINTAINER  alexiynew
 
-# Default command on startup.
+# Default command on startup
 CMD bash
 
 # Prepare
 RUN apt-get update
 
-# Setup packages.
+# Setup packages
 RUN apt-get install -y --no-install-recommends cmake make
 RUN apt-get install -y --no-install-recommends clang-3.8 g++-5
 RUN apt-get install -y --no-install-recommends python
 RUN apt-get install -y --no-install-recommends git
 
+# Install libraries
+RUN apt-get install -y --no-install-recommends libx11-dev
+
+# Setup compillers
 RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.8 100
 RUN update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.8 100
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 100
