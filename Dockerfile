@@ -13,6 +13,7 @@ RUN apt-get install -y --no-install-recommends clang-3.8 g++-5
 RUN apt-get install -y --no-install-recommends python
 RUN apt-get install -y --no-install-recommends git
 RUN apt-get install -y --no-install-recommends xvfb
+RUN apt-get install -y --no-install-recommends lcov
 
 # Install libraries
 RUN apt-get install -y --no-install-recommends libx11-dev
