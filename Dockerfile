@@ -7,6 +7,7 @@ CMD bash
 # Prepare
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends curl wget
+RUN apt-get install software-properties-common
 
 # Add repositories
 RUN wget --no-check-certificate -O - https://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add -
