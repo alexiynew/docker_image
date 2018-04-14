@@ -4,6 +4,10 @@ MAINTAINER  alexiynew
 # Default command on startup
 CMD bash
 
+# Environment variables
+ENV DEBIAN_FRONTEND noninteractive
+ENV DISPLAY :1
+
 # Prepare
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends curl wget
@@ -23,6 +27,10 @@ RUN apt-get install -y --no-install-recommends git
 RUN apt-get install -y --no-install-recommends xvfb
 RUN apt-get install -y --no-install-recommends lcov
 
+# Setup Xdummy
+RUN apt-get install -y --no-install-recommends xserver-xorg-video-dummy x11-apps
+RUN wget https://xpra.org/xorg.conf -O xorg.conf
+
 # Install libraries
 RUN apt-get install -y --no-install-recommends libx11-dev
 
@@ -40,3 +48,6 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN clang++ --version
 RUN g++ --version
 RUN python --version
+
+# Run Xserver
+RUN Xorg -noreset +extension GLX +extension RANDR +extension RENDER -logfile ./Xdummy.log -config ./xorg.conf :1
