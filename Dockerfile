@@ -48,6 +48,3 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN clang++ --version
 RUN g++ --version
 RUN python --version
-
-# Run Xserver
-RUN Xorg -noreset +extension GLX +extension RANDR +extension RENDER -logfile ./Xdummy.log -config ./xorg.conf :1
