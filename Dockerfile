@@ -7,7 +7,7 @@ CMD bash
 RUN apt-get install -y --no-install-recommends curl wget
 
 # Prepare
-RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
+RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add -
 RUN add-apt-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
 RUN add-apt-repository ppa:jonathonf/gcc-7.1
 RUN apt-get update
