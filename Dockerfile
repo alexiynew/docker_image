@@ -4,9 +4,11 @@ MAINTAINER  alexiynew
 # Default command on startup
 CMD bash
 
+# Prepare
+RUN apt-get update
 RUN apt-get install -y --no-install-recommends curl wget
 
-# Prepare
+# Add repositories
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add -
 RUN add-apt-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
 RUN add-apt-repository ppa:jonathonf/gcc-7.1
