@@ -6,7 +6,6 @@ CMD bash
 
 # Environment variables
 ENV DEBIAN_FRONTEND noninteractive
-ENV DISPLAY :1
 
 # Prepare
 RUN apt-get update
