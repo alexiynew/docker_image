@@ -2,7 +2,7 @@ FROM        ubuntu:xenial
 MAINTAINER  alexiynew
 
 # Default command on startup
-CMD bash
+CMD ./docker_run.sh
 
 # Environment variables
 ENV DEBIAN_FRONTEND noninteractive
@@ -18,20 +18,21 @@ RUN add-apt-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.
 RUN add-apt-repository ppa:jonathonf/gcc-7.1
 RUN apt-get update
 
-# Setup packages
+# Install packages
 RUN apt-get install -y --no-install-recommends cmake make
 RUN apt-get install -y --no-install-recommends clang-6.0 g++-7
 RUN apt-get install -y --no-install-recommends python
 RUN apt-get install -y --no-install-recommends git
-RUN apt-get install -y --no-install-recommends xvfb
 RUN apt-get install -y --no-install-recommends lcov
 
-# Setup Xdummy
 RUN apt-get install -y --no-install-recommends xserver-xorg-video-dummy x11-apps
-RUN wget https://xpra.org/xorg.conf -O xorg.conf
+RUN apt-get install -y --no-install-recommends openbox tint2 menu
 
 # Install libraries
 RUN apt-get install -y --no-install-recommends libx11-dev
+
+# Setup Xdummy
+RUN wget https://xpra.org/xorg.conf -O xorg.conf
 
 # Setup compillers
 RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
