@@ -2,7 +2,7 @@ FROM        ubuntu:xenial
 MAINTAINER  alexiynew
 
 # Default command on startup
-CMD ./docker_run.sh
+CMD ./misc/docker_run.sh
 
 # Environment variables
 ENV DEBIAN_FRONTEND noninteractive
