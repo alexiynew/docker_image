@@ -13,8 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends curl wget softw
 # Add repositories
 RUN wget --no-check-certificate -O - https://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add - && \
     add-apt-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main" &&       \
-    add-apt-repository ppa:jonathonf/gcc-7.1 &&
-    
+    add-apt-repository ppa:jonathonf/gcc-7.1
 
 # Install packages
 RUN apt-get update && apt-get install -y --no-install-recommends clang-6.0 g++-7 ninja python3\
