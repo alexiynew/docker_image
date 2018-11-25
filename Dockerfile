@@ -16,7 +16,7 @@ RUN wget --no-check-certificate -O - https://apt.llvm.org/llvm-snapshot.gpg.key|
     add-apt-repository ppa:jonathonf/gcc-7.1
 
 # Install packages
-RUN apt-get update && apt-get install -y --no-install-recommends clang-6.0 g++-7 ninja python3 python3-pip\
+RUN apt-get update && apt-get install -y --no-install-recommends clang-6.0 g++-7 ninja python3 python3-pip python3-setuptools\
  xserver-xorg-video-dummy x11-apps openbox tint2 menu libx11-dev
 
 RUN python3 -m pip install --upgrade pip && pip3 install meson
