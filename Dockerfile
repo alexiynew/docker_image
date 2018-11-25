@@ -13,24 +13,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends curl wget softw
 # Add repositories
 RUN wget --no-check-certificate -O - https://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add - && \
     add-apt-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main" &&       \
-    add-apt-repository ppa:jonathonf/gcc-7.1 && \
-    apt-get update
+    add-apt-repository ppa:jonathonf/gcc-7.1 &&
+    
 
 # Install packages
-RUN apt-get install -y --no-install-recommends   \
-                        clang-6.0                \
-                        g++-7                    \
-                        ninja                    \
-                        python3                  \
-                        python3-pip              \
-                        git                      \
-                        gcov                     \
-                        xserver-xorg-video-dummy \
-                        x11-apps                 \
-                        openbox                  \
-                        tint2                    \
-                        menu                     \
-                        libx11-dev
+RUN apt-get update && apt-get install -y --no-install-recommends clang-6.0 g++-7 ninja python3\
+ python3-pip gcov xserver-xorg-video-dummy x11-apps openbox tint2 menu libx11-dev
                         
 RUN pip3 install meson
 
