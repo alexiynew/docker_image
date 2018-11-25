@@ -19,7 +19,7 @@ RUN wget --no-check-certificate -O - https://apt.llvm.org/llvm-snapshot.gpg.key|
 RUN apt-get update && apt-get install -y --no-install-recommends clang-6.0 g++-7 ninja python3 python3-pip\
  xserver-xorg-video-dummy x11-apps openbox tint2 menu libx11-dev
 
-RUN pip install --upgrade pip && pip install meson
+RUN pip3 install --upgrade pip3 && pip3 install meson
 
 # Setup Xdummy
 RUN wget https://xpra.org/xorg.conf -O xorg.conf
