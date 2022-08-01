@@ -14,9 +14,10 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt update && apt install -y --no-install-recommends --allow-unauthenticated \
     wget g++ make cmake \
     libx11-dev libgl1-mesa-dev mesa-common-dev \
-    sudo supervisor \
-    hicolor-icon-theme fluxbox xvfb x11vnc xterm \
-    x11-apps mesa-utils \
+    sudo supervisor xvfb x11vnc \
+    dbus-x11 psmisc xdg-utils \
+    xfce4 xfce4-goodies \
+    x11-xserver-utils x11-utils x11-apps mesa-utils \
     && apt autoclean -y && apt autoremove -y && rm -rf /var/lib/apt/lists/*
 
 # Add user
@@ -35,6 +36,10 @@ ADD startup.sh /root
 
 # Access rights
 RUN chmod a+rx /root/startup.sh
+
+# Set user and home directory for xfce
+RUN sed -i "s|\$USER|${USER}|g" /root/supervisord.conf
+RUN sed -i "s|\$HOME|${HOME}|g" /root/supervisord.conf
 
 EXPOSE ${VNC_PORT}
 
