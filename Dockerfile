@@ -13,7 +13,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt update && apt install -y --no-install-recommends --allow-unauthenticated \
     wget g++ make cmake \
-    libx11-dev libgl1-mesa-dev mesa-common-dev \
+    libx11-dev libxi-dev libgl1-mesa-dev mesa-common-dev \
     sudo supervisor xvfb x11vnc \
     dbus-x11 psmisc xdg-utils \
     xfce4 xfce4-goodies \
